@@ -10,15 +10,18 @@ public class Buscador {
 	public static ArrayList<File> buscar(String ruta, String extension, ArrayList<File> seleccion){
 
 		if (ruta.trim().isEmpty() || extension.trim().isEmpty()) {
-			if (ruta.trim().isEmpty()) 		{ System.out.println("RUTA: Añada una ruta"); }
-			if (extension.trim().isEmpty()) { System.out.println("EXTENSIÓN: Añada una extensión"); }
+			
+			String mensaje = "";
+			if (ruta.trim().isEmpty()) 		{ mensaje += "RUTA: Añada una ruta \n"; }
+			if (extension.trim().isEmpty()) { mensaje += "EXTENSIÓN: Añada una extensión"; }
+			Ventana.setMensaje(mensaje);
 		    return seleccion;
 		}
 		
 		Path dir = Paths.get(ruta);
 		File  directorio = dir.toFile();
 		if (!directorio.exists() || !directorio.isDirectory()) {
-		    System.out.println("Ruta no existe o no es un directorio");
+		    Ventana.setMensaje("RUTA: no existe o no es un directorio");
 		    return seleccion;
 		}
 		File[] archivos = directorio.listFiles();

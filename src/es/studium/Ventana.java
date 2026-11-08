@@ -23,6 +23,7 @@ import javax.swing.text.BadLocationException;
 
 public class Ventana {
 
+	static JLabel labelMensaje = new JLabel("");
     public Ventana() {
 
         JFrame ventana 	= new JFrame();
@@ -45,7 +46,7 @@ public class Ventana {
 
         JScrollPane scroll = new JScrollPane(textArea);
         
-        JLabel 						labelMensaje	= new JLabel(		"");
+        
         
 //      Tamaño en pantalla
         inputRuta.setPreferredSize(new Dimension(350, 30));
@@ -149,6 +150,10 @@ public class Ventana {
                 }
             }
         });
+    }
+    
+    public static void setMensaje(String mensaje) {
+    	labelMensaje.setText(mensaje);
     }
 
 }
